@@ -67,6 +67,10 @@ TEMPLATES = [
     },
 ]
 
+# Colorizing django's test runner
+
+TEST_RUNNER = 'redgreenunittest.django.runner.RedGreenDiscoverRunner'
+
 WSGI_APPLICATION = 'superlists.wsgi.application'
 
 
