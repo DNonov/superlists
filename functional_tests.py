@@ -19,7 +19,7 @@ class NewVisitorTest(unittest.TestCase):
 
         # She notice the page title and header mention to-do list
         self.assertIn('To-Do', self.browser.title)
-        header_text = self.browser.find_element_by_tag_name('h1').text()
+        header_text = self.browser.find_element_by_tag_name('h1').text
 
         # She is invited to enter a to-do item away
         inputbox = self.browser.find_element_by_id('id-new-item')
@@ -32,10 +32,13 @@ class NewVisitorTest(unittest.TestCase):
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
-        table = self.browser.find_element_by_id('id_list_table')
+        table = self.browser.find_element_by_id('id-list-table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
-            any(row.text == '1: Buy peacock feathers' for row in rows)
+            any(row.text == '1: Buy peacock feathers' for row in rows),
+            # This is custom err message passed as second argument.
+            # We can do that in almost any assert methods in unittest.
+            "New to-do item didn't appear in table!"
         )
 
         # There is still a box inviting her to add another item.
