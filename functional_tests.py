@@ -36,9 +36,7 @@ class NewVisitorTest(unittest.TestCase):
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
             any(row.text == '1: Buy peacock feathers' for row in rows),
-            # This is custom err message passed as second argument.
-            # We can do that in almost any assert methods in unittest.
-            "New to-do item didn't appear in table!"
+            f"New to-do item didn't appear in table! Contents were:\n{table.text}"
         )
 
         # There is still a box inviting her to add another item.
