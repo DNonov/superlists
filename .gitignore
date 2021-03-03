@@ -22,6 +22,7 @@ yarn-error.log*
 
 # dotenv environment file(s)
 .env
+.venv
 .env.*
 
 # Build generated
