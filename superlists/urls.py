@@ -21,5 +21,6 @@ urlpatterns = [
     url('^admin/', admin.site.urls),
     url('^$', views.home_page, name='home'),
     url('^lists/new$', views.new_list, name='view_list'),
-    url('^lists/the-only-list-ever/$', views.view_list, name='view_list'),
+    url('^lists/(\d+)/$', views.view_list, name='view_list'),
+    url('^lists/(\d+)/add-item$', views.add_item, name='add_item'),
 ]
